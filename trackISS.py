@@ -5,7 +5,6 @@ def callStation():
     lat = (requests.get("http://api.open-notify.org/iss-now.json")).json()['iss_position']['latitude']
     long = (requests.get("http://api.open-notify.org/iss-now.json")).json()['iss_position']['longitude']
     g = geocoder.osm([lat, long], method='reverse')
-    print(("Target acquired, tracking active: the location of the ISS is {}, {}.".format(lat,long))),print("Landmarks the station is visible from: ", g.country)
     print("See location: ","http://www.google.com/maps/place/{},{}".format(lat, long))
     lastknown = (lat,long)
     return lastknown
